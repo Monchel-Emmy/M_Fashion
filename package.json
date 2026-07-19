@@ -1,0 +1,12 @@
+{
+  "name": "melody-fashion-style",
+  "version": "1.0.0",
+  "description": "Melody Fashion Style - Full Stack MERN App",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && node seed.js",
+    "start:backend": "cd backend && npm start"
+  },
+  "private": true
+}

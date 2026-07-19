@@ -1,0 +1,19 @@
+.orders-layout {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.order-detail-panel {
+  width: 340px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(var(--topbar-height) + var(--space-xl));
+  max-height: calc(100vh - var(--topbar-height) - 60px);
+  overflow-y: auto;
+}
+
+@media (max-width: 1000px) {
+  .orders-layout { flex-direction: column; }
+  .order-detail-panel { width: 100%; position: static; max-height: none; }
+}

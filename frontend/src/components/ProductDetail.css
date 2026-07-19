@@ -1,0 +1,107 @@
+.product-detail-modal {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.25s ease;
+}
+
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.product-detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-lg);
+  border-right: 1px solid var(--brand-border);
+}
+
+.product-detail-main-img {
+  flex: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--brand-surface2);
+  aspect-ratio: 4/5;
+  position: relative;
+}
+
+.product-detail-main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-detail-thumbnails {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 60px; height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid var(--brand-border);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.thumbnail.active { border-color: var(--accent-pink); }
+.thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+
+.product-detail-info {
+  padding: 48px var(--space-xl) var(--space-xl);
+}
+
+/* Size & Color buttons */
+.size-btn, .color-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--brand-border);
+  background: var(--brand-surface2);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.size-btn:hover, .color-btn:hover {
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+}
+
+.size-btn.active, .color-btn.active {
+  background: linear-gradient(135deg, rgba(255,110,180,0.2), rgba(184,127,245,0.1));
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  font-weight: 600;
+}
+
+.qty-btn {
+  width: 36px; height: 36px;
+  background: var(--brand-surface2);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qty-btn:hover { border-color: var(--accent-pink); color: var(--accent-pink); }
+
+@media (max-width: 700px) {
+  .product-detail-layout { grid-template-columns: 1fr; }
+  .product-detail-images { border-right: none; border-bottom: 1px solid var(--brand-border); }
+  .product-detail-info { padding: var(--space-lg); }
+}
