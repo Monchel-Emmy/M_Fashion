@@ -145,3 +145,30 @@
   .dashboard-charts { grid-template-columns: 1fr; }
   .dashboard-bottom { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+  .dashboard-banner {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .dashboard-banner-title {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-banner-date {
+    font-size: 0.8rem;
+  }
+
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .dashboard-bottom {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+

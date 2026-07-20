@@ -10,18 +10,51 @@
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
+  gap: var(--space-md);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.topbar-menu-btn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  background: var(--brand-surface2);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.topbar-menu-btn:hover {
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
 }
 
 .topbar-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .topbar-right {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex-shrink: 0;
 }
 
 .topbar-search {
@@ -67,6 +100,7 @@
   font-size: 1rem;
   position: relative;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .topbar-notif:hover {
@@ -100,16 +134,50 @@
   font-weight: 700;
   font-size: 0.9rem;
   color: white;
+  flex-shrink: 0;
 }
 
 .topbar-user-name {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .topbar-user-role {
   font-size: 0.7rem;
   color: var(--text-muted);
   text-transform: capitalize;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE TOPBAR
+   ============================================ */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .topbar-menu-btn {
+    display: flex;
+  }
+
+  .topbar-search {
+    display: none;
+  }
+
+  .topbar-user-info {
+    display: none;
+  }
+
+  .topbar-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 0 var(--space-sm);
+  }
 }

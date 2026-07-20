@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import api from '../api/axios';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -62,11 +61,8 @@ export default function Suppliers() {
   };
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Suppliers" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Suppliers">
+
           <div className="page-header">
             <div>
               <h2 className="page-title">Supplier Management</h2>
@@ -106,8 +102,6 @@ export default function Suppliers() {
               ))}
             </div>
           )}
-        </div>
-      </div>
 
       {showModal && (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && setShowModal(false)}>
@@ -157,6 +151,6 @@ export default function Suppliers() {
           </div>
         </div>
       )}
-    </div>
+    </AdminLayout>
   );
 }

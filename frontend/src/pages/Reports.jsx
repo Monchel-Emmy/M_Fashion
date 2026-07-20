@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import api from '../api/axios';
 import { formatFRW, formatDate } from '../utils/helpers';
 import {
@@ -78,20 +77,13 @@ export default function Reports() {
   ];
 
   if (loading) return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <div className="loader"><div className="spinner" /></div>
-      </div>
-    </div>
+    <AdminLayout title="Reports">
+      <div className="loader"><div className="spinner" /></div>
+    </AdminLayout>
   );
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Reports" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Reports">
 
           {/* Header */}
           <div className="page-header">
@@ -424,9 +416,6 @@ export default function Reports() {
               </div>
             </div>
           )}
-
-        </div>
-      </div>
-    </div>
+    </AdminLayout>
   );
 }

@@ -1,13 +1,16 @@
-import { FiBell, FiSearch } from 'react-icons/fi';
+import { FiBell, FiSearch, FiMenu } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 import './Topbar.css';
 
-export default function Topbar({ title }) {
+export default function Topbar({ title, onMenuToggle }) {
   const { user } = useAuth();
 
   return (
     <header className="topbar">
       <div className="topbar-left">
+        <button className="topbar-menu-btn" onClick={onMenuToggle} aria-label="Toggle menu">
+          <FiMenu />
+        </button>
         <h1 className="topbar-title">{title}</h1>
       </div>
       <div className="topbar-right">

@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import api from '../api/axios';
 import { formatFRW, formatDateTime, getStatusBadge } from '../utils/helpers';
 import toast from 'react-hot-toast';
@@ -50,11 +49,8 @@ export default function Orders() {
   };
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Orders" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Orders">
+
           <div className="page-header">
             <div>
               <h2 className="page-title">Customer Orders</h2>
@@ -192,8 +188,6 @@ export default function Orders() {
               <button className="btn btn-secondary btn-sm" onClick={() => setPage(p => p + 1)} disabled={page >= Math.ceil(total / 20)}>Next</button>
             </div>
           )}
-        </div>
-      </div>
-    </div>
+    </AdminLayout>
   );
 }

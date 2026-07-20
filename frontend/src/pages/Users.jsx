@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import api from '../api/axios';
 import { formatDateTime } from '../utils/helpers';
 import toast from 'react-hot-toast';
@@ -98,11 +97,7 @@ export default function Users() {
   const activeCount = users.filter(u => u.isActive).length;
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Users" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Users">
 
           {/* Header */}
           <div className="page-header">
@@ -218,8 +213,6 @@ export default function Users() {
               ))}
             </div>
           )}
-        </div>
-      </div>
 
       {/* ── Edit User Modal ── */}
       {showModal && editUser && (
@@ -331,6 +324,6 @@ export default function Users() {
           </div>
         </div>
       )}
-    </div>
+    </AdminLayout>
   );
 }

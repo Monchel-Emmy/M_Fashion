@@ -736,9 +736,23 @@ select.form-control option {
 .truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .transaction-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (≤ 768px)
    ============================================ */
 @media (max-width: 768px) {
+  /* Layout */
   .main-content {
     margin-left: 0;
   }
@@ -747,20 +761,316 @@ select.form-control option {
     padding: var(--space-md);
   }
 
+  /* Page header */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .page-header .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Stats */
   .stats-grid {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .stat-card {
+    padding: var(--space-md);
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  /* Products */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* Tables — horizontal scroll on mobile */
+  .table-wrapper {
+    border-radius: var(--radius-md);
+  }
+
+  .data-table {
+    font-size: 0.8rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 10px;
+    white-space: nowrap;
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    padding: var(--space-sm);
+    align-items: flex-end;
+  }
+
+  .modal {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 95vh;
+    animation: slideUp 0.3s ease;
+  }
+
+  .modal-header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .modal-body {
+    padding: var(--space-lg);
+  }
+
+  .modal-footer {
+    padding: var(--space-md) var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .modal-footer .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Users grid */
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .users-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Transaction layout */
+  .transaction-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .transaction-info-panel {
+    display: none; /* Hide the tips panel on mobile */
+  }
+
+  /* Stock out grid — stack number inputs */
+  .transaction-form .form-group + .form-group {
+    margin-bottom: var(--space-md);
+  }
+
+  /* Inventory chips */
+  .inv-summary-chips {
+    gap: var(--space-sm);
+  }
+
+  .inv-chip {
+    min-width: 130px;
+  }
+
+  /* Report sections buttons */
+  .report-sections {
+    gap: var(--space-xs);
+  }
+
+  .report-section-btn {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+  }
+
+  /* Suppliers form grid */
+  .modal-body [style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  /* Orders layout */
+  .orders-layout {
+    flex-direction: column;
+  }
+
+  .order-detail-panel {
+    width: 100% !important;
+  }
+
+  /* Stock in tabs — scrollable */
+  .stockin-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stockin-tab {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  /* Card spacing */
+  .card {
+    padding: var(--space-md);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — SMALL PHONES (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  :root {
+    --space-xl: 20px;
+    --space-2xl: 32px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  /* Storefront hero */
+  .store-hero {
+    padding: 50px var(--space-md);
+    min-height: 380px;
+  }
+
+  .store-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .store-hero-sub {
+    font-size: 0.9rem;
+  }
+
+  .store-hero-actions {
+    flex-direction: column;
+  }
+
+  .store-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Nav inner padding */
+  .store-nav-inner {
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .store-section-inner {
+    padding: 0 var(--space-md);
+  }
+
+  /* Inventory chips — 2 per row */
+  .inv-summary-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Users stats — full width */
+  .users-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Badges shrink */
+  .badge {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+  }
+
+  /* Form controls full width on small screens */
+  .form-control {
+    font-size: 16px; /* Prevents iOS auto-zoom */
+  }
+
+  /* Report section buttons full width */
+  .report-sections {
+    flex-direction: column;
+  }
+
+  .report-section-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Dashboard charts on small */
+  .dashboard-banner {
+    padding: var(--space-md);
+  }
+
+  .dashboard-banner-title {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-banner-date {
+    font-size: 0.78rem;
+  }
+
+  /* Stock out form grid always stacked */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 }
 
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr; }
-  .product-grid { grid-template-columns: 1fr; }
-  .page-header { flex-direction: column; align-items: flex-start; }
+/* ============================================
+   PAGINATION (shared)
+   ============================================ */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0 var(--space-sm);
 }
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   ORDERS LAYOUT (shared)
+   ============================================ */
+.orders-layout {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.order-detail-panel {
+  width: 360px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(var(--topbar-height) + var(--space-md));
+}
+
+@media (max-width: 1100px) {
+  .order-detail-panel {
+    width: 300px;
+  }
+}
+
 
 /* ============================================
    STOCK IN — TABS

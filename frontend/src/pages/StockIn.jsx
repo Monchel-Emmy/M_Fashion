@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import ProductModal from '../components/ProductModal';
 import api from '../api/axios';
 import { formatFRW, getCategoryEmoji } from '../utils/helpers';
@@ -125,11 +124,7 @@ export default function StockIn() {
 
   /* ─────────────────────── RENDER ─────────────────────── */
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Stock In" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Stock In">
 
           {/* Page header */}
           <div className="page-header">
@@ -465,9 +460,6 @@ export default function StockIn() {
             </div>
           )}
 
-        </div>
-      </div>
-
       {showModal && (
         <ProductModal
           product={editProduct}
@@ -475,6 +467,6 @@ export default function StockIn() {
           onSaved={onSaved}
         />
       )}
-    </div>
+    </AdminLayout>
   );
 }

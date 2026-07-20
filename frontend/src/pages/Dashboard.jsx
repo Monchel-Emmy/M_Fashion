@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import { formatFRW } from '../utils/helpers';
 import api from '../api/axios';
 import {
@@ -45,12 +44,9 @@ export default function Dashboard() {
   }, []);
 
   if (loading) return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <div className="loader"><div className="spinner" /></div>
-      </div>
-    </div>
+    <AdminLayout title="Dashboard">
+      <div className="loader"><div className="spinner" /></div>
+    </AdminLayout>
   );
 
   const statCards = [
@@ -63,11 +59,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Dashboard" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Dashboard">
 
           {/* Welcome banner */}
           <div className="dashboard-banner">
@@ -210,8 +202,6 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </AdminLayout>
   );
 }

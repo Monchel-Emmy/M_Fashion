@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import Sidebar from '../components/Sidebar';
-import Topbar from '../components/Topbar';
+import AdminLayout from '../components/AdminLayout';
 import api from '../api/axios';
 import { formatFRW, getCategoryEmoji } from '../utils/helpers';
 import toast from 'react-hot-toast';
@@ -61,11 +60,8 @@ export default function StockOut() {
   const stockAfter = selectedProduct && qty ? selectedProduct.quantity - Number(qty) : selectedProduct?.quantity;
 
   return (
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar title="Stock Out" />
-        <div className="page-content fade-in">
+    <AdminLayout title="Stock Out">
+
           <div className="page-header">
             <div>
               <h2 className="page-title">Record Sale (Stock Out)</h2>
@@ -201,8 +197,6 @@ export default function StockOut() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </AdminLayout>
   );
 }
