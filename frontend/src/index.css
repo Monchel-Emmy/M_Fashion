@@ -322,12 +322,19 @@ select.form-control option {
    TABLE
    ============================================ */
 .table-wrapper {
+  /* Scroll ONLY the table — never the surrounding page */
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-lg);
   border: 1px solid var(--brand-border);
+  /* Critical: cap width so it never pushes parent wider */
+  max-width: 100%;
+  width: 100%;
 }
 
 .data-table {
+  /* Must be wider than wrapper for scrolling to work */
+  min-width: 600px;
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
@@ -346,7 +353,7 @@ select.form-control option {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  white-space: nowrap;
+  white-space: nowrap; /* headers stay on one line */
 }
 
 .data-table td {
@@ -354,6 +361,7 @@ select.form-control option {
   border-bottom: 1px solid var(--brand-border);
   color: var(--text-secondary);
   vertical-align: middle;
+  /* Do NOT force nowrap on cells — let content wrap naturally */
 }
 
 .data-table tbody tr {
@@ -374,19 +382,28 @@ select.form-control option {
 .admin-layout {
   display: flex;
   min-height: 100vh;
+  /* Prevent any child from overflowing the viewport width */
+  overflow-x: hidden;
 }
 
 .main-content {
   flex: 1;
+  /* min-width:0 is critical for flex children — prevents them expanding */
+  min-width: 0;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Also contain overflow so tables can't push the layout */
+  overflow-x: hidden;
 }
 
 .page-content {
   padding: var(--space-xl);
   flex: 1;
+  /* Contain overflow so nothing bleeds horizontally */
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .page-header {
@@ -794,19 +811,26 @@ select.form-control option {
     gap: var(--space-md);
   }
 
-  /* Tables — horizontal scroll on mobile */
+  /* Tables — only the wrapper scrolls, nothing else */
   .table-wrapper {
     border-radius: var(--radius-md);
+    /* Ensure it stays within its container */
+    max-width: 100%;
   }
 
   .data-table {
     font-size: 0.8rem;
   }
 
-  .data-table th,
-  .data-table td {
-    padding: 10px 10px;
+  .data-table th {
+    padding: 9px 10px;
+    /* Keep headers nowrap so columns stay identifiable */
     white-space: nowrap;
+  }
+
+  .data-table td {
+    padding: 9px 10px;
+    /* Allow cell content to wrap — do NOT force nowrap */
   }
 
   /* Modal */

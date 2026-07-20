@@ -5,6 +5,9 @@
   margin-bottom: var(--space-lg);
   padding: var(--space-md) var(--space-lg);
   flex-wrap: wrap;
+  /* Prevent this from expanding wider than the page */
+  max-width: 100%;
+  min-width: 0;
 }
 
 .filter-search {
